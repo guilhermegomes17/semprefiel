@@ -1,0 +1,167 @@
+#include <iostream>
+#include <locale.h>
+#include <iomanip>
+#include <math.h>
+
+
+using namespace std;
+
+int main() {	
+
+
+	int tipoArgamassa, argamassa, dimensoes; 
+	float altura=0, largura=0, comprimento=0, areaTotal=0; 
+	float custoTotal=0, valorAreia=0, valorCal=0, valorCimento=0;
+	float custoAlvenaria=0, custoEmboco=0, custoReboco=0;
+	int quantCimento=0, quantAreia=16, quantCal=4;
+	float carrinhoAreia=5.3, latasAreia=16, pasAreia=64; //quantidade total de areia 
+	float carrinhoCimento=5.3, latasCimento=16, pasCimento=64; //quantidade total de areia 
+	float carrinhoCal=5.3, latasCal=16, pasCal=64; //quantidade total de areia 
+	int menu, retornar;
+	float  cimento=0.05 ;
+	setlocale(LC_ALL,"");// para reconhecer idioma do código, no caso, português
+	
+	inicio:
+			cout <<" Menu Principal "<<endl<<endl;
+			
+			cout <<"1 - Finalidade da argamassa"<<endl;
+			cout <<"2 - Informar dimenções"<<endl;
+			cout <<"3 - Valores de custo"<<endl; 
+			cout <<"4 - Exibir informações"<<endl;
+			cout <<"9 - Sair"<<endl<<endl;
+			cout <<"Digite a opção ==> ";
+			cin  >> menu;
+			
+				if((menu>=5 && menu<=8) or (menu>9)){
+				
+				cout <<endl<<"Valor inválido, favor tentar novamente"<<endl<<endl;
+				system("pause");
+				system("cls");
+				goto inicio;
+				
+			} else{
+				
+	switch (menu){
+							
+		case 1: // exibe opções de argamassa
+				system("cls");
+		
+				cout <<"Selecione o tipo de argamassa:"<<endl<<endl;
+				
+				cout << "1 - Alvenaria"<<endl;
+				cout << "2 - Emboço interno"<<endl;
+				cout << "3 - Reboco externo"<<endl<<endl;
+				cout <<"Digite a opção ==> ";
+				cin  >> tipoArgamassa;
+				 
+				 if(tipoArgamassa==3){
+				 	
+				 	quantCal=3;	
+				 	
+				 }	
+				 	
+				 
+				 	system("cls");
+					goto inicio;
+					break;
+		case 2: // solicita as dimensões para a utilização da argamassa
+				
+				system("cls");
+				
+				cout <<"Favor informar as dimenções da área de utilização da argamassa:"<<endl<<endl;
+				
+				cout <<"Informe a altura ==> ";
+				cin  >> altura;
+				cout <<"Informe a largura ==> ";
+				cin  >> largura;
+				cout <<"Informe o comprimento ==> ";
+				cin  >> comprimento;	
+				system("cls");
+				goto inicio;
+				
+		break;
+		
+		case 3: //solicita valores em reais dos insumos
+			
+				system("cls");
+				
+				cout <<"Favor informar os valores estimados para cada item à seguir:"<<endl<<endl;
+				
+				cout <<"1 lata de areia ==> ";
+				cin  >> valorAreia;
+				cout <<"Saco de 20kg de cal ==> ";
+				cin  >> valorCal;
+				cout <<"Saco de 50kg de cimento ==> ";
+				cin  >> valorCimento;
+				
+				if(tipoArgamassa==3){
+					
+					valorCal=valorCal+3;
+				}
+	
+				system("cls");
+				goto inicio;
+				
+		break;
+		
+		case 4: //exibe as informações passadas pelo menu
+				
+				system("cls");
+				//calculo área para argamassa
+				areaTotal= altura * largura * comprimento;
+	
+				//calculo para quantidade de insumos necessários
+				quantCimento= (cimento *areaTotal)*1000 / 50 ;
+				quantAreia= quantCimento*quantAreia; 
+				quantCal= quantCimento*quantCal;
+				
+				//calculo para o valor por tipo de utilização e o custo total
+				valorCimento = valorCimento * quantCimento;
+				valorAreia = valorAreia * quantAreia;
+				valorCal = valorCal * quantCal;
+				
+				//calcula custo total por utilização
+				custoAlvenaria = valorCimento + valorAreia + valorCal;
+				custoEmboco = valorCimento + valorAreia + valorCal;
+				custoReboco = valorCimento + valorAreia + valorCal; //calculo do reboco com traço 1:2:6
+				
+				custoTotal = custoAlvenaria + custoEmboco + custoReboco;//calcula custo total dos materias
+				
+				//calculo de quantidade de carrinhos, latas e pás
+				carrinhoAreia = quantAreia*carrinhoAreia;
+				latasAreia = quantAreia*latasAreia;
+				pasAreia = quantAreia*pasAreia;
+				
+				carrinhoCimento = quantCimento*carrinhoCimento;
+				latasCimento = quantCimento*latasCimento;
+				pasCimento = quantCimento*pasCimento;
+				
+				carrinhoCal = quantCal*carrinhoCal;
+				latasCal = quantCal*latasCal;
+				pasCal = quantCal*pasCal;
+				
+				//exibe as informações 
+				cout <<"Total de insumos necessários para fazer as argamassas nos traços especificados é "
+				<<quantCimento*3<<" saco de cimento de 50kg, "<<quantAreia*3<<" latas de areia e "<<quantCal*3<<" sacos de cal de 20kg."<<endl;
+	
+				cout << "Para alvenaria o custo é R$"<<custoAlvenaria<<endl;
+				cout << "Para emboço interno o custo é R$"<<custoEmboco<<endl;
+				cout << "Para reboco externo o custo é R$"<<custoReboco<<endl;
+					
+				cout << "Os custos total dos materais é R$"<<custoTotal<<endl;	
+
+				cout << "Para cada tipo de utilização será necessário: "<<carrinhoAreia<<" carrinhos de areia, "<< latasAreia <<" latas de areia e "<< pasAreia<< " pás de areia."<<endl;
+				cout << "Para cada tipo de utilização será necessário: "<<carrinhoCimento<<" carrinhos de cimento, "<< latasCimento <<" latas de cimento e "<< pasCimento<< " pás de cimento."<<endl;
+				cout << "Para cada tipo de utilização será necessário: "<<carrinhoCal<<" carrinhos de cal, "<< latasCal <<" latas de cal e "<< pasCal<< " pás de cal."<<endl;
+				system("pause");
+			break;	
+		
+		case 9: //finaliza o menu
+			
+			system("cls");
+		    break;
+	}
+		
+}
+	return 0;
+}

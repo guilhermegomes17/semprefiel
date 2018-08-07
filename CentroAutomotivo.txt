@@ -1,0 +1,181 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+#include <locale.h>
+
+int main(){
+	
+//menu
+unsigned char menu;
+int num_func=0, ord_service;
+//motor
+unsigned char service1;
+int preco_serv1=0;
+//suspenção
+unsigned char service2;
+int preco_serv2=0;
+//freio
+unsigned char service3;
+int preco_serv3=0;
+//desconto
+int valor_total=0, valor_total1=0, desconto=0;
+
+setlocale(LC_ALL, "Portuguese");
+
+inicio:	
+
+		printf("===== Sistema Automotivo===== \n");
+		printf("MENU INICIAL: \n");
+		printf("1 - Motor \n");
+		printf("2 - Suspensão \n");
+		printf("3 - Freio \n");
+		printf("4 - Sair \n\n");
+		printf("Digite a opção deseja: ==> ");
+		scanf("%i",&menu);
+		
+switch (menu){
+	
+	case 1: 
+			
+				system("cls");
+
+		printf("===== Serviços para Motor===== \n");
+		printf("=========================================\n");
+		printf("= 1 - Alto consumo de óleo lubrificante =\n");
+		printf("= 2 - Excesso de fumaça do escapamento  =\n");
+		printf("= 3 - Baixa potência                    =\n");
+		printf("=========================================\n\n");
+		printf("Informe o tipo de defeito ==> ");
+		scanf("%i", &service1);
+
+			if (service1 == 1 or service1 == 2 or service1 == 3){
+
+						preco_serv1 = preco_serv1 + 100;
+						num_func = num_func + 1;
+	
+				}else {
+			
+						printf("Opção invalida, tente novamente! \n\n");
+		
+	  				}
+	  			
+				  break;
+				  	
+	  	case 2:
+	  		
+				system("cls");
+
+		printf("\t===== Serviços de Suspenção===== \n");
+		printf("=======================================\n");
+		printf("= 1 - Ruidos e batidas nas rodas      =\n");
+		printf("= 2 - Vibrações e direção puxando     =\n");
+		printf("= 3 - Desgaste irregular dos pneus    =\n");
+		printf("=======================================\n\n");	
+		printf("Informe o tipo de defeito ==> ");
+		scanf("%i", &service2);
+	
+			if (service2 == 1 or service2 == 2 or service2 == 3){
+
+						preco_serv2 = preco_serv2 + 200;
+						num_func = num_func + 1;
+			
+				}else {
+			
+						printf("Opção invalida, tente novamente! \n\n");
+		
+					}
+	  		
+	  	break;
+	  	
+	  	case 3:
+	  		
+	  			system("cls");
+	  		
+		printf("\t===== Serviços de Freio===== \n");
+		printf("=======================================\n");
+		printf("= 1 - Fibração do freio              =\n");
+		printf("= 2 - Carro puxa quando freia        =\n");
+		printf("= 3 - Chiado ao pisar no freio       =\n");
+		printf("=======================================\n\n");
+		printf("Informe o tipo de defeito ==>  ");
+		scanf("%i", &service3);	
+
+			if (service3 == 1 or service3 == 2 or service3 == 3){
+
+						preco_serv3 = preco_serv3 + 300;
+						num_func = num_func + 1;
+	
+				}else {
+			
+						printf("Opção invalida, tente novamente! \n\n");
+		
+					}
+					
+		break;
+		
+		case 4:
+			
+			system("exit");			
+			
+			break;
+			
+	}
+		
+		printf("\nDeseja outro serviço? 1-Sim 2-Não ==> ");
+		scanf("%i", &menu);
+			
+			while (menu!=1 & menu!=2) {
+    		system("cls");
+    		printf("Opção invalida, tente novamente! \n\n");
+		    
+			printf("Deseja solicitar mais algum serviço? 1-Sim 2-Não ==> ");
+            scanf("%i", &menu);
+		
+		}
+			
+		if (menu == 1){
+			
+			system("cls");
+			goto inicio;
+	
+		} else if (menu==2){
+	
+		valor_total = preco_serv1 + preco_serv2 + preco_serv3;
+		
+		if (valor_total <= 100){
+			
+			valor_total1 = preco_serv1;
+				
+		}
+		else if (valor_total >= 200 & valor_total <=1000){
+			
+			valor_total1 = (valor_total * 5 ) / 100;
+			valor_total1 = valor_total - valor_total1;
+			desconto = 5;
+			
+		}
+	    else if (valor_total >1000){
+	    	
+	    	valor_total1 = (valor_total * 10) / 100;
+	    	valor_total1 = valor_total - valor_total1;
+	    	desconto = 10;
+	    	
+	}
+		
+		system("cls");
+		
+		srand(time(NULL));
+		ord_service =  rand() % 1000;
+	    
+	    printf("OS:[%i] \n", ord_service);
+		printf("--------------------------------------------------\n");
+		printf("Valor do desconto: [%i %%] \n", desconto);
+		printf("--------------------------------------------------\n");
+		printf("Mão de Obra utilizada : [%i] \n", num_func);
+		printf("--------------------------------------------------\n");
+		printf("Valor total: [R$ %i ]\n", valor_total1);
+				
+	}	
+}
+

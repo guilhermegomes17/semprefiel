@@ -1,0 +1,220 @@
+#include <iostream>
+#include <locale.h>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+	
+	int i; //variável para controle de repetição do menu de avaliação
+	int lerServico; // lê o serviço para ser avaliado.
+	int avaliaCivil=0, avaliaMecanica=0, avaliaEletrica=0; //recebe a avaliação feita pelo cliente
+	int otimo=5, bom=4, regular=3, ruim=2, pessimo=1; //variaveis para verificar satisfação
+	int quantOtimo=0, quantBom=0, quantRegular=0, quantRuim=0, quantPessimo=0;//recebe a quantidade de vezes que o servico é avaliado entre as avaliações disponiveis
+	int quantCivil=0, quantMecanica=0, quantEletrica=0;//Variaveis para informa a engenharia mais requisitada pelos clientes
+	int satisfacao,avaliaTotal;//para calcular a satisfação do cliente em porcentagem
+	char engCivil, engMecanica, engEletrica;// recebem o nivel de satisfação
+	setlocale(LC_ALL,"");// para reconhecer idioma do código, no caso, português
+	
+	
+for (i=0;i<100;i++){//estrutura para controle da quantidade de repetições da pesquisa
+
+			system("cls");
+			
+			cout <<"Informe o serviço prestado que deseja avaliar: "<<endl<<endl;// selecionar qual área será avalizada
+			
+			cout <<"1 - Engenharia Civil"<<endl;
+			cout <<"2 - Engenharia Mecânica"<<endl;
+			cout <<"3 - Engenharia Elétrcia"<<endl<<endl;
+			cout <<"Digite a opção ==> ";
+			cin >> lerServico;//recebe a opção escolhida
+			
+				if (lerServico==1){// condição para avaliação de engenharia civil
+				
+					system("cls");
+					
+					cout << "A - ótimo "<<endl;
+					cout << "B - bom "<<endl;
+					cout << "C - regular "<<endl;
+					cout << "D - ruim "<<endl;
+					cout << "E - pessimo "<<endl<<endl;
+					cout <<"Digite a opção ==> ";
+					cin >> engCivil;//recebe a opção escolhida
+					
+						if(engCivil=='A' or engCivil=='a'){
+							
+							quantCivil = quantCivil + 1;//recebe +1 sempre que entrar no if.
+							quantOtimo = quantOtimo + 1; //recebe +1 sempre que entrar no if.
+							avaliaCivil= avaliaCivil + otimo;//avaliaCivil recebe ele mesmo mais o valor da opção escolhida (otimo 5)			
+						
+						}else if(engCivil=='B'or engCivil=='b'){
+							
+							quantCivil = quantCivil + 1;//recebe +1 sempre que entrar no if.
+							quantBom = quantBom + 1;//recebe +1 sempre que entrar no if.
+							avaliaCivil= avaliaCivil + bom;//avaliaCivil recebe ele mesmo mais o valor da opção escolhida ( bom 4)
+							
+						}else if(engCivil=='C'or engCivil=='c'){
+							
+							quantCivil = quantCivil + 1;//recebe +1 sempre que entrar no if.
+							quantRegular = quantRegular + 1;//recebe +1 sempre que entrar no if.
+							avaliaCivil= avaliaCivil + regular;//avaliaCivil recebe ele mesmo mais o valor da opção escolhida (regular 3)
+							
+						}else if(engCivil=='D'or engCivil=='d'){
+							
+							quantCivil = quantCivil + 1;//recebe +1 sempre que entrar no if.
+							quantRuim = quantRuim + 1;//recebe +1 sempre que entrar no if.
+							avaliaCivil= avaliaCivil + ruim;//avaliaCivil recebe ele mesmo mais o valor da opção escolhida (ruim 2)
+							
+						}else if(engCivil=='E'or engCivil=='e') {
+							
+							quantCivil = quantCivil + 1;//recebe +1 sempre que entrar no if.
+							quantPessimo = quantPessimo + 1;//recebe +1 sempre que entrar no if.
+							avaliaCivil=avaliaCivil + pessimo;//avaliaCivil recebe ele mesmo mais o valor da opção escolhida (pessimo 1)
+						}
+					
+				} else if(lerServico==2){// condição para avaliação de engenharia civil
+					
+					system("cls");//limpa a tela
+					
+					cout << "A - ótimo "<<endl;
+					cout << "B - bom "<<endl;
+					cout << "C - regular "<<endl;
+					cout << "D - ruim "<<endl;
+					cout << "E - pessimo "<<endl<<endl;
+					cout <<"Digite a opção ==> ";
+					cin >> engMecanica;//recebe a opção escolhida
+						
+						if(engMecanica=='A' or engMecanica=='a'){
+							
+							quantMecanica = quantMecanica + 1; //recebe +1 sempre que entrar no if.
+							quantOtimo = quantOtimo + 1; //recebe +1 sempre que entrar no if.
+							avaliaMecanica= avaliaMecanica + otimo;	//avaliaMecanica recebe ele mesmo mais o valor da opção escolhida (otimo 5)		
+						
+						}else if(engMecanica=='B' or engMecanica=='b'){
+							
+							quantMecanica = quantMecanica + 1;//recebe +1 sempre que entrar no if.
+							quantBom = quantBom + 1;//recebe +1 sempre que entrar no if.
+							avaliaMecanica= avaliaMecanica + bom;//avaliaMecanica recebe ele mesmo mais o valor da opção escolhida (bom 4)
+							
+						}else if(engMecanica=='C' or engMecanica=='c'){
+							
+							quantMecanica = quantMecanica + 1;//recebe +1 sempre que entrar no if.
+							quantRegular = quantRegular + 1;//recebe +1 sempre que entrar no if.
+							avaliaMecanica= avaliaMecanica + regular;//avaliaMecanica recebe ele mesmo mais o valor da opção escolhida (regular 3)
+							
+						}else if(engMecanica=='D' or engMecanica=='d'){
+							
+							quantMecanica = quantMecanica + 1;//recebe +1 sempre que entrar no if.
+							quantRuim = quantRuim + 1;//recebe +1 sempre que entrar no if.
+							avaliaMecanica= avaliaMecanica + ruim;//avaliaMecanica recebe ele mesmo mais o valor da opção escolhida (ruim 2)
+							
+						}else if(engMecanica=='E' or engMecanica=='e'){
+							
+							quantMecanica = quantMecanica + 1;//recebe +1 sempre que entrar no if.
+							quantPessimo = quantPessimo + 1;//recebe +1 sempre que entrar no if.
+							avaliaMecanica= avaliaMecanica + pessimo;//avaliaMecanica recebe ele mesmo mais o valor da opção escolhida (pessimo 1)
+						}
+					
+				} else if(lerServico==3){// condição para avaliação de engenharia civil
+					
+					system("cls");
+				
+					cout << "A - ótimo "<<endl;
+					cout << "B - bom "<<endl;
+					cout << "C - regular "<<endl;
+					cout << "D - ruim "<<endl;
+					cout << "E - pessimo "<<endl<<endl;
+					cout <<"Digite a opção ==> ";
+					cin >> engEletrica;//recebe a opção escolhida
+					
+						if(engEletrica=='A' or engEletrica=='a'){//recebe valor de avaliação otimo
+							
+							quantEletrica = quantEletrica + 1;//recebe +1 sempre que entrar no if.
+							quantOtimo = quantOtimo + 1; //recebe +1 sempre que entrar no if.
+							avaliaEletrica= avaliaEletrica + otimo;	//avalilaEletrica recebe ele mesmo mais o valor da opção escolhida (otimo 5)		
+						
+						}else if(engEletrica=='B' or engEletrica=='b'){//recebe valor de avaliação bom
+							
+							quantEletrica = quantEletrica + 1;//recebe +1 sempre que entrar no if.
+							quantBom = quantBom + 1;//recebe +1 sempre que entrar no if.
+							avaliaEletrica= avaliaEletrica + bom;//avalilaEletrica recebe ele mesmo mais o valor da opção escolhida (bom 4)
+							
+						}else if(engEletrica=='C' or engEletrica=='c'){//recebe valor de avaliação regular
+							
+							quantEletrica = quantEletrica + 1;//recebe +1 sempre que entrar no if.
+							quantRegular = quantRegular + 1;//recebe +1 sempre que entrar no if.
+							avaliaEletrica= avaliaEletrica + regular;//avalilaEletrica recebe ele mesmo mais o valor da opção escolhida (regular 3)
+							
+						}else if(engEletrica=='D' or engEletrica=='d'){ //recebe valor de avaliação ruim
+							
+							quantEletrica = quantEletrica + 1;//recebe +1 sempre que entrar no if.
+							quantRuim = quantRuim + 1;//recebe +1 sempre que entrar no if.
+							avaliaEletrica= avaliaEletrica + ruim;//avalilaEletrica recebe ele mesmo mais o valor da opção escolhida (ruim 2)
+							
+						}else if(engEletrica=='E' or engEletrica=='e'){ //recebe valor de avaliação pessimo
+							
+							quantEletrica = quantEletrica + 1;//recebe +1 sempre que entrar no if.
+							quantPessimo = quantPessimo + 1;//recebe +1 sempre que entrar no if.
+							avaliaEletrica= avaliaEletrica + pessimo;//avalilaEletrica recebe ele mesmo mais o valor da opção escolhida (pessimo 1)
+						}
+				}
+
+	}
+		system("cls");
+		
+		//informa a quantidade de vezes que uma opção foi escolhida
+		cout << "A quantidade de ótimo é: "<< quantOtimo <<endl; 
+		cout << "A quantidade de bom é: " <<quantBom <<endl;
+		cout << "A quantidade de regular é: " <<quantRegular <<endl;
+		cout << "A quantidade de ruim é: " <<quantRuim <<endl;
+		cout << "A quantidade de péssimo é: " <<quantPessimo <<endl;
+		
+		//Cálculo para dar a porcentagem de satisfação do cliente
+		avaliaTotal = quantOtimo+quantBom+quantRegular+quantRuim+quantPessimo; //avaliaTotal recebe a soma de todos os votos
+		satisfacao=quantOtimo+quantBom+quantRegular; //satisfacao recebe a soma da quantidade totoal das melhores avaliações
+		satisfacao=satisfacao*100/avaliaTotal; //satisfacao recebe ele mesmo mutiplicado por 100 e dividido por avaliatotal
+		
+		cout <<"A porcentagem de satisfação do cliente é: "<<satisfacao<<setprecision(2)<<"%"<<endl; //Informa a porcentagem de satisfação do cliente
+
+		if (quantCivil>quantMecanica & quantCivil>quantEletrica){//informa qual é o serviço mais solicitado pelos clientes
+			
+			cout << "A engenharia civil é a área que os clientes mais solicitam serviço"<<endl;
+			
+		} else if (quantMecanica>quantCivil & quantMecanica>quantEletrica){
+			
+			cout << "A engenharia mecânica é a área que os clientes mais solicitam serviço"<<endl;
+			
+		}else if(quantEletrica>quantCivil & quantEletrica>quantMecanica){
+			
+			cout << "A engenharia elétrica é a área que os clientes mais solicitam serviço"<<endl;
+		}
+		
+		if(avaliaCivil>avaliaMecanica & avaliaCivil>avaliaEletrica){//verifica qual serviço teve a melhor avaliação e sua avaliação
+		
+			cout <<"Engenharia civil teve a melhor avaliação com "<< avaliaCivil<<endl;
+	
+		} else if(avaliaMecanica>avaliaEletrica & avaliaMecanica>avaliaCivil ){
+			
+			cout <<"Engenharia mecânica teve a melhor avaliação com "<< avaliaMecanica<<endl;
+
+		} else if(avaliaEletrica>avaliaMecanica & avaliaEletrica>avaliaCivil){
+			
+			cout <<"Engenharia elétrica teve a melhor avaliação com "<< avaliaEletrica<<endl;
+			
+		}
+		if(avaliaCivil<avaliaMecanica & avaliaCivil<avaliaEletrica){//verifica qual serviço teve a pior avaliação e sua avaliação
+		
+			cout <<"Engenharia civil teve a pior avaliação com "<< avaliaCivil<<endl;
+		
+		} else if(avaliaMecanica<avaliaEletrica & avaliaMecanica<avaliaCivil ){
+			
+			cout <<"Engenharia mecânica teve a pior avaliação com "<< avaliaMecanica<<endl;
+
+		} else if(avaliaEletrica<avaliaMecanica & avaliaEletrica<avaliaCivil){
+			
+			cout <<"Engenharia elétrica teve a pior avaliação com "<< avaliaEletrica<<endl;
+			
+		}
+		system("pause");
+	return 0;
+}
